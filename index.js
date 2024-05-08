@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+require('dotenv').config()
 
 app.get('/', function (req, res) {
   res.send('Hello World')
@@ -7,9 +8,10 @@ app.get('/', function (req, res) {
 
 // MxvNJsKi9qrwBTyV
 // dness4743
+// console.log(process.env.USER_NAME,process.env.USER_PASS)
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://dness4743:MxvNJsKi9qrwBTyV@clusterpro.cdwktcy.mongodb.net/?retryWrites=true&w=majority&appName=ClusterPro";
+const uri = `mongodb+srv://${process.env.USER_NAME}:${process.env.USER_PASS}@clusterpro.cdwktcy.mongodb.net/?retryWrites=true&w=majority&appName=ClusterPro`;
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
